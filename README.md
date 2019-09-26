@@ -2,4 +2,4 @@
 
 web前端框架的训练
 
-bootstrap  |  vue# test
+bootstrap  |  vue
