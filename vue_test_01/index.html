@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<title>test_06</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+	</head>
+	<body>
+		<div id="app">
+			<p>产品1：{{one}}</p>
+			<p>产品1价格：{{p1}}</p>
+			<p>产品2：{{two}}</p>
+			<p>产品2价格：{{p2}}</p>
+			<button type="button" @click="add1" class="btn btn-info">增加货物1</button>
+			<button type="button" @click="add2" class="btn btn-info">增加货物2</button>
+			<p>总价：{{all}}</p>
+		</div>
+		<div id="app2">
+			<p>产品1：</p><input type="text" v-model="one" value="" />
+			<p>产品1价格</p><input type="text" v-model="p1" value="" />
+			<p>总价：{{all}}</p>
+			<p>计算属性：{{all1}}</p>
+		</div>
+
+		<!-- built files will be auto injected -->
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var app = new Vue({
+				el:"#app",
+				data:{
+					one:4,
+					two:2,
+					p1:10,
+					p2:12
+				},
+				methods:{
+					add1:function(){
+						this.one++;
+					},
+					add2:function(){
+						this.two++;
+					},
+				},
+				computed:{
+					all:function(){
+						return this.one*this.p1+this.two*this.p2;
+					},
+				}
+			})
+			
+			var app2 = new Vue({
+				el:"#app2",
+				data:{
+					one:0,
+					p1:0,
+					all:0,
+				},
+				computed:{
+					all1:function(){
+						return this.one*this.p1;
+					},
+				},
+				watch:{
+					one:function(){
+						this.all=this.one*this.p1
+					},
+					p1:function(){
+						this.all=this.one*this.p1
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>
