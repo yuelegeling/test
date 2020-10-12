@@ -14,7 +14,7 @@
     "echarts": "^4.5.0",
     "element-ui": "^2.12.0",
     "json-server": "^0.15.1",
-    "tinymce": "^5.1.2",
+    "tinymce": "^5.4.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
